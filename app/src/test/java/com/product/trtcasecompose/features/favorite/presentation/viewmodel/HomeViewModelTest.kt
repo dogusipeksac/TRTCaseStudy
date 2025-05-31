@@ -43,7 +43,7 @@ class HomeViewModelTest {
     fun `fetchMovies should emit Success when use case returns data`() = runTest {
         coEvery { getMoviesUseCase() } returns UiState.Success(FAKE_MOVIES)
 
-        viewModel = HomeViewModel(getMoviesUseCase, connectivityObserver)
+        viewModel = HomeViewModel(getMoviesUseCase)
         advanceUntilIdle()
 
         val state = viewModel.moviesState.value
@@ -55,7 +55,7 @@ class HomeViewModelTest {
     fun `fetchMovies should emit Error when use case fails`() = runTest {
         coEvery { getMoviesUseCase() } returns UiState.Error(ERROR_MESSAGE)
 
-        viewModel = HomeViewModel(getMoviesUseCase, connectivityObserver)
+        viewModel = HomeViewModel(getMoviesUseCase)
         advanceUntilIdle()
 
         val state = viewModel.moviesState.value

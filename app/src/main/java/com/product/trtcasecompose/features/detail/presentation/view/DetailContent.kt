@@ -73,7 +73,7 @@ fun DetailContent(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(32.dp))
 
                 Text(
                     text = if (movie.title.isNotBlank()) movie.title else "--",

@@ -1,35 +1,37 @@
 package com.product.trtcasecompose.features.detail.presentation.view
 
 import android.annotation.SuppressLint
-import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun YouTubePlayer(
-    videoId: String,
-) {
+fun YouTubePlayer(videoId: String) {
     val html = """
         <!DOCTYPE html>
         <html>
         <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <style>
                 body { margin: 0; background-color: black; }
             </style>
         </head>
         <body>
-            <iframe
+            <iframe 
                 width="100%" 
-                height="100%"
-                src="https://www.youtube.com/embed/$videoId?autoplay=1&modestbranding=1&rel=0"
+                height="100%" 
+                src="https://www.youtube.com/embed/$videoId"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -38,28 +40,25 @@ fun YouTubePlayer(
         </html>
     """.trimIndent()
 
-    val aspectRatio = 16f / 9f
-
-    Box(
+    Card(
         modifier = Modifier
             .fillMaxWidth()
-            .aspectRatio(aspectRatio)
+            .padding(horizontal = 16.dp)
+            .aspectRatio(16f / 9f), // 16:9 oranı, ideal YouTube görünümü
+        elevation = 8.dp,
+        shape = RoundedCornerShape(16.dp)
     ) {
         AndroidView(
+            modifier = Modifier.fillMaxSize(),
             factory = { context ->
                 WebView(context).apply {
-                    webViewClient = WebViewClient()
                     settings.javaScriptEnabled = true
-                    loadDataWithBaseURL(
-                        null,
-                        html,
-                        "text/html",
-                        "utf-8",
-                        null
-                    )
+                    settings.domStorageEnabled = true
+                    settings.mediaPlaybackRequiresUserGesture = false
+                    webViewClient = WebViewClient()
+                    loadDataWithBaseURL(null, html, "text/html", "UTF-8", null)
                 }
-            },
-            update = { it.loadData(html, "text/html", "utf-8") }
+            }
         )
     }
 

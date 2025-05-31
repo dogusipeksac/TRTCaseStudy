@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TRTCaseCompose</string>
+    <string name="detail_screen_title">DETAIL</string>
+    <string name="back_button_content_desc">Back</string>
+    <string name="play_trailer">Play Trailer</string>
+    <string name="no_favorites">You don\'t have any favorite movies yet.</string>
+    <string name="error_prefix">Error: %1$s</string>
+    <string name="favorite_button_content_desc">Favorite button</string>
+    <string name="movie_poster_content_desc">%1$s movie poster</string>
+    <string name="detail_title">Movie Detail</string>
+    <string name="favorite_error_icon_desc">Failed to retrieve favorite status</string>
+    <string name="ok_button">OK</string>
+    <string name="trailer_error_icon_desc">Failed to load trailer</string>
+    <string name="trailer_not_found">Trailer not found</string>
+    <string name="movie_title_label">Movie Title</string>
+    <string name="movie_overview_label">Overview</string>
+    <string name="offline_warning">We are currently unable to access the movie list.\nYour favorites are still visible.</string>
+    <string name="offline_home_warning">We are currently unable to access the movie list.\nThere seems to be an issue with your internet.\nYour favorites are still visible.</string>
+    <string name="offline_detail_warning">We are currently unable to access the detail.\nThere seems to be an issue with your internet.\n</string>
+    <string name="reconnect_message">Reconnected to the internet.</string>
+    <string name="retry_button">Retry</string>
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_favorites">Favorites</string>
+</resources>

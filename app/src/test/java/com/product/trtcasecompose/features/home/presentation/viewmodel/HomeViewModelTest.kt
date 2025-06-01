@@ -1,11 +1,8 @@
-package com.product.trtcasecompose.features.favorite.presentation.viewmodel
+package com.product.trtcasecompose.features.home.presentation.viewmodel
 
 import com.product.trtcasecompose.core.common.connectivity.ConnectivityObserver
 import com.product.trtcasecompose.core.common.state.UiState
-import com.product.trtcasecompose.core.util.TestConstants.ERROR_MESSAGE
-import com.product.trtcasecompose.core.util.TestConstants.FAKE_MOVIES
 import com.product.trtcasecompose.features.home.domain.usecase.GetMoviesUseCase
-import com.product.trtcasecompose.features.home.presentation.viewmodel.HomeViewModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -41,26 +38,41 @@ class HomeViewModelTest {
 
     @Test
     fun `fetchMovies should emit Success when use case returns data`() = runTest {
-        coEvery { getMoviesUseCase() } returns UiState.Success(FAKE_MOVIES)
+
+        val fake_movies = listOf(
+            com.product.trtcasecompose.features.home.domain.model.Movie(
+                id = 1,
+                title = "Batman",
+                overview = "A dark knight.",
+                posterUrl = "batman.jpg"
+            ),
+            com.product.trtcasecompose.features.home.domain.model.Movie(
+                id = 2,
+                title = "Superman",
+                overview = "A man of steel.",
+                posterUrl = "superman.jpg"
+            )
+        )
+        coEvery { getMoviesUseCase() } returns UiState.Success(fake_movies)
 
         viewModel = HomeViewModel(getMoviesUseCase)
         advanceUntilIdle()
 
         val state = viewModel.moviesState.value
         assertTrue(state is UiState.Success)
-        assertEquals(FAKE_MOVIES, (state as UiState.Success).data)
+        assertEquals(fake_movies, (state as UiState.Success).data)
     }
 
     @Test
     fun `fetchMovies should emit Error when use case fails`() = runTest {
-        coEvery { getMoviesUseCase() } returns UiState.Error(ERROR_MESSAGE)
+        coEvery { getMoviesUseCase() } returns UiState.Error("Server Error")
 
         viewModel = HomeViewModel(getMoviesUseCase)
         advanceUntilIdle()
 
         val state = viewModel.moviesState.value
         assertTrue(state is UiState.Error)
-        assertEquals(ERROR_MESSAGE, (state as UiState.Error).message)
+        assertEquals("Server Error", (state as UiState.Error).message)
     }
 
     @After

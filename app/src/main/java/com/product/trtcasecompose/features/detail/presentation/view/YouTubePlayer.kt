@@ -44,7 +44,7 @@ fun YouTubePlayer(videoId: String) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .aspectRatio(16f / 9f), // 16:9 oranı, ideal YouTube görünümü
+            .aspectRatio(16f / 9f),
         elevation = 8.dp,
         shape = RoundedCornerShape(16.dp)
     ) {

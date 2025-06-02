@@ -28,6 +28,7 @@ import com.product.trtcasecompose.presentation.app.components.ErrorPopup
 fun DetailContent(
     movieState: UiState<MovieDetail>,
     videoState: UiState<String?>,
+    onRetry: () -> Unit
 ) {
     when (movieState) {
         is UiState.Loading -> {
@@ -91,8 +92,13 @@ fun DetailContent(
         is UiState.Error -> {
             var showError by remember { mutableStateOf(true) }
             if (showError) {
-                ErrorPopup(message = movieState.message, onDismiss = { showError = false })
+                ErrorPopup(message = movieState.message, onDismiss = { showError = false },
+                    onRetry = {
+                        showError = false
+                        onRetry()
+                    })
             }
         }
+
     }
 }

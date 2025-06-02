@@ -60,7 +60,12 @@ fun DetailScreen(
         ) {
             DetailContent(
                 movieState = movieState, videoState = videoKeyState,
-            )
+                onRetry = {
+                    viewModel.loadMovieDetail(movieId)
+                    viewModel.loadMovieTrailer(movieId)
+                    favoritesViewModel.checkIsFavorite(movieId)
+                })
+
         }
     }
 }

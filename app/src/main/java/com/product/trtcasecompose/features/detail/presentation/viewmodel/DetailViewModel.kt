@@ -27,7 +27,6 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-
     private val _videoKey = MutableStateFlow<UiState<String?>>(
         UiState.Loading
     )

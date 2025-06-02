@@ -27,6 +27,12 @@ This project is a **Movie Listing and Detail Android Application** developed as 
 - Reactive UI state with `UiState` sealed class
 - Retry mechanism on failure
 
+### ❤️ Favorite Screen
+- Displays a list of movies the user marked as favorite
+- Favorite status is persisted locally using Room database
+- Supports offline access to favorites
+- Toggle favorite state from both Home and Detail screens
+
 ### 🎞 Detail Screen
 - Displays movie details: title, overview, poster
 - YouTube trailer embedded with fallback to poster if no video is found

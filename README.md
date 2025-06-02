@@ -77,7 +77,7 @@ Data (Repository, Retrofit API, Room DB)
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/trt-case-compose.git
+git clone https://github.com/dogusipeksac/trt-case-compose.git
 cd trt-case-compose
 
 2.Open in Android Studio (Giraffe or newer)

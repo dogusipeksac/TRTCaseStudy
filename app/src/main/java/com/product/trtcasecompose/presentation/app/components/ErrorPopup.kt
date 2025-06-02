@@ -15,7 +15,7 @@ fun ErrorPopup(
     onRetry: () -> Unit={}
 ) {
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = {},
         confirmButton = {
             Button(onClick = {
                 onDismiss()

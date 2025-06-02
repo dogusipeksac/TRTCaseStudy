@@ -47,7 +47,19 @@ class MovieDetailRepositoryImpl @Inject constructor(
             val response = api.getMovieDetail(movieId, Constants.API_KEY)
             UiState.Success(response.toDomain())
         } catch (e: Exception) {
-            UiState.Error(ErrorHandler.handleException(e))
+            //if api not work get from local
+            //i get this error with bad network
+            val cached = movieDao.getMovieById(movieId)?.toDomain()
+            cached?.let {
+                UiState.Success(
+                    MovieDetail(
+                        id = it.id,
+                        title = it.title,
+                        overview = it.overview,
+                        posterUrl = it.posterUrl
+                    )
+                )
+            } ?: UiState.Error(ErrorHandler.handleException(e))
         }
     }
 

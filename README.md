@@ -57,14 +57,12 @@ Data (Repository, Retrofit API, Room DB)
 
 ## 📷 Screenshots
 
-| Home Screen| 
-![Preview]![home](https://github.com/user-attachments/assets/06bf63d4-9a9e-4a8f-8388-6fec962f9bee) 
-| Detail Screen|
-![Preview]![detail](https://github.com/user-attachments/assets/e50eb7f9-7c7a-4a89-a429-acbdd6abd88f)
-| Favorite Screen| 
-![Preview]![favorite](https://github.com/user-attachments/assets/9694818a-2396-4811-a4c8-cdde8f0cdbea)
-|Detail Screen (Offline)|
-![Preview]![offline_detail](https://github.com/user-attachments/assets/5357337e-7787-40b5-bd17-3f039b64a471)
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/06bf63d4-9a9e-4a8f-8388-6fec962f9bee" width="250"/>
+  <img src="https://github.com/user-attachments/assets/e50eb7f9-7c7a-4a89-a429-acbdd6abd88f" width="250"/>
+  <img src="https://github.com/user-attachments/assets/9694818a-2396-4811-a4c8-cdde8f0cdbea" width="250"/>
+  <img src="https://github.com/user-attachments/assets/5357337e-7787-40b5-bd17-3f039b64a471" width="250"/>
+</p>
 
 ---
 
